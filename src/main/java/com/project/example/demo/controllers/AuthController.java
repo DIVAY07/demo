@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.example.demo.entities.User;
 import com.project.example.demo.models.JwtRequest;
 import com.project.example.demo.models.JwtResponse;
 import com.project.example.demo.security.JwtHelper;
+import com.project.example.demo.services.UserService;
 
 @RestController
 @RequestMapping("/auth")
@@ -34,7 +36,9 @@ public class AuthController {
     private JwtHelper helper;
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
-
+    
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
@@ -67,5 +71,11 @@ public class AuthController {
     @ExceptionHandler(BadCredentialsException.class)
     public String exceptionHandler() {
         return "Credentials Invalid !!";
+    }
+    
+    @PostMapping("/create-user")
+    public User creaUser(@RequestBody User user)
+    {
+    	return userService.createUser(user);
     }
 }

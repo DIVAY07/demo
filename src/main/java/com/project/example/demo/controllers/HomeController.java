@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.example.demo.models.User;
+import com.project.example.demo.entities.User;
 import com.project.example.demo.services.UserService;
 
 @RestController
