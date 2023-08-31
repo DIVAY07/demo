@@ -22,6 +22,8 @@ import com.project.example.demo.models.JwtResponse;
 import com.project.example.demo.security.JwtHelper;
 import com.project.example.demo.services.UserService;
 
+// Just some changes 
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
